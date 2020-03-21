@@ -1,2 +1,2 @@
 # JavaEETasks
-University tasks for JavaEE
+University tasks for JavaEE (TPO)
