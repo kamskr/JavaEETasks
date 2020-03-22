@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/2-ClientServer.iml" filepath="$PROJECT_DIR$/2-ClientServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/2-ClientServerNon-Blocking.iml" filepath="$PROJECT_DIR$/2-ClientServerNon-Blocking.iml" />
     </modules>
   </component>
 </project>
