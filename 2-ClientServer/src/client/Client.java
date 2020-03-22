@@ -25,7 +25,12 @@ public class Client {
                 System.out.println(String.format("Sending Message: %s\nbufforBytes: %d", message, bytesWritten));
 
                 if(message.split(" ")[0].equalsIgnoreCase("add")){
-
+                    System.out.println("adding");
+                    buffer.rewind();
+                    client.read(buffer);
+                    buffer.flip();
+                    int result = buffer.getInt();
+                    System.out.println(" Result = " + result);
                 }
 
             }

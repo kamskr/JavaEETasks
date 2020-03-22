@@ -32,12 +32,24 @@ public class ServerHandler {
         //Parse data from buffer to string
         String data = new String(byteBuffer.array()).trim();
         if (data.length() > 0){
+            String[] stringAdd;
 
             System.out.println("INFO: Received message: " + data);
 
             if(data.equalsIgnoreCase("exit")){
                 client.close();
                 System.out.println("Connection closed");
+            }else if((stringAdd = data.split(" "))[0].equalsIgnoreCase("add")){
+                int a = Integer.parseInt(stringAdd[1]);
+                int b = Integer.parseInt(stringAdd[2]);
+
+                System.out.println("Adding two values: " + a + " + " + b);
+                int sum = a + b;
+
+                byteBuffer.rewind();
+                byteBuffer.putInt(sum);
+                byteBuffer.flip();
+                client.write(byteBuffer);
             }
         }
     }
