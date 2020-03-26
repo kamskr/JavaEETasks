@@ -8,9 +8,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>$Title$</title>
+    <title>Simple web app</title>
   </head>
   <body>
-  $END$
+  <h1>Input values</h1>
+  <form>
+    <input type="number" required name="value1" pattern="[0-0]" />
+    <input type="number" required name="value2" pattern="[0-0]" />
+    <button formmethod="get" formaction="/add">GET</button>
+    <button formmethod="post" formaction="/add">POST</button>
+  </form>
   </body>
 </html>
