@@ -9,7 +9,7 @@ import java.nio.channels.SocketChannel;
 public class ServerHandler {
 
 
-    public static void handleAccept(ServerSocketChannel socket, SelectionKey key) throws IOException {
+    public static void handleAccept(ServerSocketChannel socket) throws IOException {
         System.out.println("Connection accepted");
 
         //accept the connection and set to non-blocking mode

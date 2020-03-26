@@ -27,12 +27,13 @@ public class Client {
                 if(message.split(" ")[0].equalsIgnoreCase("add")){
                     System.out.println("adding");
                     buffer.rewind();
+
+//                    wait for result form server
                     client.read(buffer);
                     buffer.flip();
                     int result = buffer.getInt();
                     System.out.println(" Result = " + result);
                 }
-
             }
 
             client.close();

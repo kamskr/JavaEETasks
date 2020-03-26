@@ -37,7 +37,7 @@ public class NonBlockingServer {
 
 //                    isAcceptable() - checking if client is requesting a connection
                     if(key.isAcceptable()){
-                        ServerHandler.handleAccept(serverSocketChannel, key);
+                        ServerHandler.handleAccept(serverSocketChannel);
 
 //                    isReadable() - method to read data when client has prepared data.
                     } else if (key.isReadable()){
