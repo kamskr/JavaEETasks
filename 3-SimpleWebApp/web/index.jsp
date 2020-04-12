@@ -18,5 +18,7 @@
     <button formmethod="get" formaction="/add">GET</button>
     <button formmethod="post" formaction="/add">POST</button>
   </form>
+  <h3>Response</h3>
+  <p>Your response is  <span style="font-weight: bold"> ${response}  </span></p>
   </body>
 </html>

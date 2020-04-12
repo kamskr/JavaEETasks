@@ -25,14 +25,19 @@ public class AddServlet extends HttpServlet {
     }
 
     private void performAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        BigInteger value1 = value(request, "value1");
-        BigInteger value2 = value(request, "value2");
+        try {
+            BigInteger value1 = value(request, "value1");
+            BigInteger value2 = value(request, "value2");
 
-        Integers integers = new Integers(value1, value2);
+            Integers integers = new Integers(value1, value2);
 
-        PrintWriter output = response.getWriter();
-        output.print(value1 + " + " + value2 + " = " + integers.addValues());
-        output.close();
+            PrintWriter output = response.getWriter();
+            request.getSession().setAttribute("response", integers.addValues());
+            response.sendRedirect("/");
+        }catch(NumberFormatException e){
+            request.setAttribute("response", "Wrong input");
+            request.getRequestDispatcher("/").forward(request, response);
+        }
     }
     private BigInteger value(HttpServletRequest request, String parameterName){
         String parameterInput = request.getParameter(parameterName);
