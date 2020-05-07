@@ -13,7 +13,7 @@ import java.math.BigInteger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-@WebServlet(name = "Controller.AddServlet", urlPatterns = "/add")
+@WebServlet("/add")
 public class AddServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -31,12 +31,16 @@ public class AddServlet extends HttpServlet {
 
             Integers integers = new Integers(value1, value2);
 
+
+//            request.getSession().setAttribute("result", integers.addValues());
+            response.setContentType("text/plain");
             PrintWriter output = response.getWriter();
-            request.getSession().setAttribute("response", integers.addValues());
-            response.sendRedirect("/");
+            output.write(integers.addValues().toString());
+
+//            response.sendRedirect("/");
         }catch(NumberFormatException e){
-            request.setAttribute("response", "Wrong input");
-            request.getRequestDispatcher("/").forward(request, response);
+//            request.setAttribute("result", "Wrong input");
+//            request.getRequestDispatcher("/").forward(request, response);
         }
     }
     private BigInteger value(HttpServletRequest request, String parameterName){
@@ -44,5 +48,17 @@ public class AddServlet extends HttpServlet {
         System.out.println(parameterName);
         System.out.println(parameterInput);
         return new BigInteger(parameterInput);
+    }
+
+    @Override
+    public void destroy() {
+        super.destroy();
+        System.out.println("Add servlet destroy");
+    }
+
+    @Override
+    public void init() throws ServletException {
+        super.init();
+        System.out.println("add Servlet init");
     }
 }
