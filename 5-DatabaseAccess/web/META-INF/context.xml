@@ -9,7 +9,7 @@
             maxIdle="30"
             maxWaitMillis="10000"
             username="root"
-            password="rozciąganie"
+            password="**"
             driverClassName="com.mysql.cj.jdbc.Driver"
             url="jdbc:mysql://localhost:3306/TPO_Tasks?useSSL=false&amp;serverTimezone=UTC" />
 </Context>
